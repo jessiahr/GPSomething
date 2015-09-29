@@ -5,28 +5,18 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'ngCordova', 'starter.controllers', 'starter.services'])
-.controller('LocationController', function($scope, $cordovaGeolocation){
-  $scope.welcome = "Welcome!";
-  $scope.coords = {};
-  $scope.lat = {};
-  $scope.long = {};
-  $scope.boobs = function(){
-    var posOptions = {
-      timeout: 10000,
-      enableHighAccuracy: false
-    };
+angular.module('app', [
+  'ionic',
+  'ngCordova',
+  'app.locations',
+'app.profile'])
+  .config(function( $stateProvider, $urlRouterProvider) {
 
-    $cordovaGeolocation
-    .getCurrentPosition(posOptions)
-    .then(function (position) {
-      $scope.coords = position.coords;
-      $scope.lat  = position.coords.latitude;
-      $scope.long = position.coords.longitude;
-    }, function(err) {
-      console.log(err);
-      // error
-    });
-  }
 
+  $urlRouterProvider.otherwise('/locations')
+
+  // $stateProvider.state('home', {
+  //   url: '/',
+  //   template: '<strong>yoooo</strong>'
+  // });
 })
