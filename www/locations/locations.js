@@ -14,10 +14,17 @@ angular.module('app.locations', ['ionic', 'ui.router'])
 .controller('LocationsController', function( $cordovaGeolocation, $scope, $http, $state, $ionicSideMenuDelegate){
   $scope.welcome = "Welcome!";
   $scope.coords = {};
-  $scope.locationsList =[];
+
+  $scope.locationsList = JSON.parse(window.localStorage['locationList'] || '[]');
+  console.log(window.localStorage['locationList'] )
   $scope.locationData = {};
 
+  $scope.resetData = function(){
+      window.localStorage['locationList'] = "[]"
+      $scope.locationsList = [];
 
+
+  };
   $scope.loadLocation = function(){
     var posOptions = {
       timeout: 10000,
@@ -31,7 +38,8 @@ angular.module('app.locations', ['ionic', 'ui.router'])
       $scope.locationData.lat  = position.coords.latitude;
       $scope.locationData.long = position.coords.longitude;
       console.log($scope.locationData);
-      $scope.locationsList.push($scope.locationData);
+      $scope.locationsList.push(angular.copy($scope.locationData));
+      window.localStorage['locationList'] = JSON.stringify( $scope.locationsList);
 
     }, function(err) {
       console.log(err);
