@@ -1,8 +1,11 @@
 <div >
   <div class="list" >
 
-  <div class="item item-button-right" ng-repeat="location in locationsList">
-    <h2>Lat={{location.latitude}}</h2>
+  <div class="item item-button-right" ng-repeat="location in locationsList track by $index">
+    <h2>Lat={{location.lat}}</h2>
+      <h2>long={{location.long}}</h2>
+            <h2>name={{location.name}}</h2>
+
 
     <button class="button button-positive">
       <i class="icon ion-ios-telephone"></i>
@@ -11,12 +14,29 @@
 
 
 </div>
-  <div class="card">
+  <!-- <div class="card">
     <div ng-click="loadLocation()" class="item item-text-wrap">
-      <h2>Lat={{lat}}</h2>
-      <h2>long={{long}}</h2>
 
-    </div>
+      <div class="list">
+        <label class="item item-input">
+          <input ng-model="locationData.name" type="text" placeholder="Name">
+        </label>
+      </div>
+      <h2>Lat={{locationData.lat}}</h2>
+      <h2>long={{locationData.long}}</h2> -->
+
+      <div class="list">
+        <label class="item item-input">
+          <input ng-model="locationData.name" type="text" placeholder="Name">
+        </label>
+      </div>
+
+
+      <button class="button button-full button-positive" ng-click="loadLocation()" >
+        Full Width Block Button
+      </button>
+
+
 
 
 

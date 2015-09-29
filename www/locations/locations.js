@@ -14,9 +14,8 @@ angular.module('app.locations', ['ionic', 'ui.router'])
 .controller('LocationsController', function( $cordovaGeolocation, $scope, $http, $state, $ionicSideMenuDelegate){
   $scope.welcome = "Welcome!";
   $scope.coords = {};
-  $scope.lat = {};
-  $scope.long = {};
   $scope.locationsList =[];
+  $scope.locationData = {};
 
 
   $scope.loadLocation = function(){
@@ -29,9 +28,10 @@ angular.module('app.locations', ['ionic', 'ui.router'])
     .getCurrentPosition(posOptions)
     .then(function (position) {
       $scope.coords = position.coords;
-      $scope.lat  = position.coords.latitude;
-      $scope.long = position.coords.longitude;
-      $scope.locationsList.push(position.coords);
+      $scope.locationData.lat  = position.coords.latitude;
+      $scope.locationData.long = position.coords.longitude;
+      console.log($scope.locationData);
+      $scope.locationsList.push($scope.locationData);
 
     }, function(err) {
       console.log(err);
