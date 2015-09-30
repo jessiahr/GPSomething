@@ -15,6 +15,12 @@ angular.module('app.locations', ['ionic', 'ui.router'])
   $scope.welcome = "Welcome!";
   $scope.coords = {};
 
+
+
+
+
+
+
   $scope.locationsList = JSON.parse(window.localStorage['locationList'] || '[]');
   console.log(window.localStorage['locationList'] )
   $scope.locationData = {};
