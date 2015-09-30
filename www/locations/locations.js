@@ -11,7 +11,7 @@ angular.module('app.locations', ['ionic', 'ui.router'])
 
 })
 
-.controller('LocationsController', function( $cordovaGeolocation, $scope, $http, $state, $ionicSideMenuDelegate){
+.controller('LocationsController', function( $cordovaGeolocation, $scope, $http, $state, $ionicSideMenuDelegate, $ionicGesture){
   $scope.welcome = "Welcome!";
   $scope.coords = {};
 
@@ -22,6 +22,8 @@ angular.module('app.locations', ['ionic', 'ui.router'])
   $scope.resetData = function(){
       window.localStorage['locationList'] = "[]"
       $scope.locationsList = [];
+      confirm()
+
 
 
   };
