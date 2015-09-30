@@ -26,13 +26,11 @@ angular.module('app.locations', ['ionic', 'ui.router'])
   $scope.locationData = {};
 
   $scope.resetData = function(){
-      window.localStorage['locationList'] = "[]"
-      $scope.locationsList = [];
-      confirm()
 
-
-
-  };
+      if (confirm('sda')){
+        window.localStorage['locationList'] = "[]"
+        $scope.locationsList = [];} else {}
+      };
   $scope.loadLocation = function(){
     var posOptions = {
       timeout: 10000,
