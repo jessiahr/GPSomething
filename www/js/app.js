@@ -9,7 +9,7 @@ angular.module('app', [
   'ionic',
   'ngCordova',
   'app.locations',
-'app.profile'])
+  'app.profile'])
   .config(function( $stateProvider, $urlRouterProvider) {
 
 
