@@ -1,7 +1,17 @@
 <ion-view  hide-nav-bar="true" >
   <ion-content class=" pane-dark">
 
-    <div style="height:30px; display:block;"> </div>
+    <div class="item item-button-right" ng-repeat="location in locationsList track by $index">
+      <h2>Lat={{location.lat}}</h2>
+      <h2>long={{location.long}}</h2>
+      <h2>name={{location.name}}</h2>
+
+
+      <button class="button button-positive">
+        <i class="icon ion-ios-telephone"></i>
+      </button>
+    </div>
+
     <label class="item item-input">
       <input type="text" ng-model="locationData.name">
     </label>
@@ -11,27 +21,6 @@
     <button class="button button-full button-positive" ng-click="resetData()" >
       Reset Locations.
     </button>
-
-
-
-
-
-
-
-        <div ng-swipe-left="resetData()" class="item item-button-right" ng-repeat="location in locationsList track by $index">
-          <h2>Lat={{location.lat}}</h2>
-          <h2>long={{location.long}}</h2>
-          <h2>name={{location.name}}</h2>
-        </div>
-
-
-
-
-
-
-
-
-
 
   </ion-content>
 

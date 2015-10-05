@@ -11,7 +11,7 @@ angular.module('app.locations', ['ionic', 'ui.router'])
 
 })
 
-.controller('LocationsController', function( $cordovaGeolocation, $scope, $http, $state, $ionicSideMenuDelegate, $ionicGesture){
+.controller('LocationsController', function( $cordovaGeolocation, $scope, $http, $state, $ionicSideMenuDelegate, $ionicGesture, $ionicPopup){
   $scope.welcome = "Welcome!";
   $scope.coords = {};
 
@@ -25,9 +25,31 @@ angular.module('app.locations', ['ionic', 'ui.router'])
   console.log(window.localStorage['locationList'] )
   $scope.locationData = {};
 
+
+  // $scope.showConfirm = function() {
+  //    var confirmPopup = $ionicPopup.confirm({
+  //      title: 'Delete Locations?',
+  //      template: ''
+  //     if (showConfirm()) {
+  //       window.localStorage['locationList'] = "[]"
+  //       $scope.locationsList = [];} else {}
+  //     };
+  //
+  //   });
+  // };
+    //  confirmPopup.then(function(res) {
+    //    if(res) {
+    //      console.log('You are sure');
+    //    } else {
+    //      console.log('You are not sure');
+    //    }
+    //  });
+
+
+
   $scope.resetData = function(){
 
-      if (confirm('sda')){
+      if (confirm('title')){
         window.localStorage['locationList'] = "[]"
         $scope.locationsList = [];} else {}
       };
