@@ -2,7 +2,7 @@ angular.module('app.profile', ['ionic', 'ui.router'])
 .config(function(  $stateProvider, $urlRouterProvider) {
 
 
-  $stateProvider.state('profile', {
+  $stateProvider.state( 'profile', {
     url: '/profile',
     controller: 'ProfileController',
     controllerAs: 'profileCtrl',
