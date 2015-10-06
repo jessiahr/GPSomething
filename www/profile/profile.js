@@ -1,4 +1,4 @@
-angular.module('app.profile', ['ionic', 'ui.router'])
+angular.module('app.profile', ['ionic', 'app.models', 'ui.router'])
 .config(function(  $stateProvider, $urlRouterProvider) {
 
 
@@ -11,11 +11,22 @@ angular.module('app.profile', ['ionic', 'ui.router'])
 
 })
 
-.controller('ProfileController', function(  $scope, $state){
-  $scope.welcome = "Welcome21231!";
+.controller('ProfileController', function( Locations,  $scope, $state){
+
+
   $scope.backToOther = function(){
-    $state.go("locations");
+    // $state.go("locations");
+
 
   }
+  $scope.locationsList = Locations.list;
+  console.log(window.localStorage['locationList'] )
+  $scope.locationData = {};
 
+  $scope.resetData = function(){
+    Locations.deleteAll();
+    
+
+
+  };
 });
