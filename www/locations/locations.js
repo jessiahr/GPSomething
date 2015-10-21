@@ -4,6 +4,7 @@ angular.module('app.locations', ['ionic', 'app.models', 'ui.router'])
 
   $stateProvider.state('locations', {
     url: '/locations',
+      cache: false,
     controller: 'LocationsController',
     controllerAs: 'locationsCtrl',
     templateUrl: 'locations/locations.html'
@@ -11,7 +12,8 @@ angular.module('app.locations', ['ionic', 'app.models', 'ui.router'])
 
 })
 
-.controller('LocationsController', function(Locations ,$cordovaGeolocation, $scope, $http, $state, $ionicSideMenuDelegate){
+.controller('LocationsController', function(Locations ,$cordovaGeolocation, $scope, $http, $state, $ionicSideMenuDelegate, Login){
+  Login.ensureLoggedIn();
   $scope.locationData = {};
   $scope.loadLocation = function(){
     var posOptions = {
